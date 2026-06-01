@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, Play, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import type { Difficulty, GameStatus } from './types'
 
 type SudokuOverlayProps = {
@@ -89,13 +90,13 @@ export function SudokuOverlay({
                     <Sparkles size={16} strokeWidth={2.6} />
                     New Game
                   </button>
-                  <a
-                    href="/games"
+                  <Link
+                    to="/games"
                     className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.035] px-5 text-xs font-extrabold uppercase text-white/82 transition hover:border-arcade-mint/50 hover:text-arcade-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcade-mint"
                   >
                     <ArrowLeft size={16} strokeWidth={2.6} />
                     Back to Games
-                  </a>
+                  </Link>
                 </div>
               </>
             )}

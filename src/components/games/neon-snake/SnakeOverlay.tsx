@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, Check, Play, Repeat, RotateCcw, Shield } from 'lucide-react'
 import { createPortal } from 'react-dom'
+import { Link } from 'react-router-dom'
 import { DIFFICULTIES } from './types'
 import type { Difficulty, GameMode, GameStatus } from './types'
 import { difficultyConfig, gameModeConfig } from './useSnakeGame'
@@ -139,13 +140,13 @@ export function SnakeOverlay({
                 <p className="mx-auto mt-4 max-w-sm text-xs font-bold leading-5 text-white/46">
                   Arrow keys, WASD, swipe, or the glass pad steer. Space or P pauses.
                 </p>
-                <a
-                  href="/games"
+                <Link
+                  to="/games"
                   className="mt-4 inline-flex items-center justify-center gap-2 text-xs font-extrabold uppercase tracking-[0.14em] text-white/58 transition hover:text-arcade-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcade-mint"
                 >
                   <ArrowLeft size={15} strokeWidth={2.6} />
                   Back to Games
-                </a>
+                </Link>
               </>
             ) : null}
 
@@ -202,13 +203,13 @@ export function SnakeOverlay({
                     <RotateCcw size={16} strokeWidth={2.6} />
                     Restart
                   </button>
-                  <a
-                    href="/games"
+                  <Link
+                    to="/games"
                     className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.035] px-5 text-xs font-extrabold uppercase text-white/82 transition hover:border-arcade-mint/50 hover:text-arcade-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcade-mint"
                   >
                     <ArrowLeft size={16} strokeWidth={2.6} />
                     Back to Games
-                  </a>
+                  </Link>
                 </div>
               </>
             ) : null}

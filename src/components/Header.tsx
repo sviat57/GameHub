@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -36,8 +37,8 @@ export function Header({ currentPath }: HeaderProps) {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-arcade-black/45 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="group flex items-center gap-3 text-sm font-extrabold uppercase tracking-[0.2em] text-white"
           aria-label="Neon Game Hub home"
         >
@@ -48,13 +49,13 @@ export function Header({ currentPath }: HeaderProps) {
           <span className="transition-colors duration-300 group-hover:text-arcade-mint">
             NEON HUB
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a
+            <NavLink
               key={item.href}
-              href={item.href}
+              to={item.href}
               aria-current={isActiveLink(item.href, currentPath) ? 'page' : undefined}
               className={
                 isActiveLink(item.href, currentPath)
@@ -63,7 +64,7 @@ export function Header({ currentPath }: HeaderProps) {
               }
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -98,23 +99,26 @@ export function Header({ currentPath }: HeaderProps) {
               }}
             >
               {navItems.map((item) => (
-                <motion.a
+                <motion.div
                   key={item.href}
-                  href={item.href}
-                  aria-current={isActiveLink(item.href, currentPath) ? 'page' : undefined}
-                  className={
-                    isActiveLink(item.href, currentPath)
-                      ? 'border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-[0.12em] text-arcade-mint transition-colors'
-                      : 'border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-[0.12em] text-white transition-colors hover:text-arcade-mint'
-                  }
-                  onClick={() => setIsOpen(false)}
                   variants={{
                     hidden: { opacity: 0, y: 12 },
                     visible: { opacity: 1, y: 0 },
                   }}
                 >
-                  {item.label}
-                </motion.a>
+                  <NavLink
+                    to={item.href}
+                    aria-current={isActiveLink(item.href, currentPath) ? 'page' : undefined}
+                    className={
+                      isActiveLink(item.href, currentPath)
+                        ? 'block border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-[0.12em] text-arcade-mint transition-colors'
+                        : 'block border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-[0.12em] text-white transition-colors hover:text-arcade-mint'
+                    }
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </NavLink>
+                </motion.div>
               ))}
             </motion.nav>
           </motion.div>

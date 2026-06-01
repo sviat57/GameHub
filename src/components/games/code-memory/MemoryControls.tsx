@@ -9,6 +9,7 @@ import {
   Settings2,
   Sparkles,
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { DIFFICULTIES, difficultyConfig } from './types'
 import type { Difficulty, GameStatus } from './types'
 
@@ -130,10 +131,10 @@ export function MemoryControls({
           <Sparkles size={16} strokeWidth={2.5} />
           New Game
         </button>
-        <a href="/games" className={actionButton} aria-label="Back to games">
+        <Link to="/games" className={actionButton} aria-label="Back to games">
           <ArrowLeft size={16} strokeWidth={2.5} />
           Games
-        </a>
+        </Link>
       </div>
     </section>
   )

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, Check, Play, RotateCcw, Sparkles } from 'lucide-react'
 import { createPortal } from 'react-dom'
+import { Link } from 'react-router-dom'
 import { DIFFICULTIES, difficultyConfig } from './types'
 import type {
   CompletedSummary,
@@ -146,13 +147,13 @@ export function MemoryOverlay({
                   <Play size={16} strokeWidth={2.6} />
                   Start Game
                 </motion.button>
-                <a
-                  href="/games"
+                <Link
+                  to="/games"
                   className="mt-4 inline-flex items-center justify-center gap-2 text-xs font-extrabold uppercase tracking-[0.14em] text-white/58 transition hover:text-arcade-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcade-mint"
                 >
                   <ArrowLeft size={15} strokeWidth={2.6} />
                   Back to Games
-                </a>
+                </Link>
               </>
             ) : null}
 
@@ -208,10 +209,10 @@ export function MemoryOverlay({
                     <Sparkles size={16} strokeWidth={2.6} />
                     New Game
                   </button>
-                  <a href="/games" className={ghostButton}>
+                  <Link to="/games" className={ghostButton}>
                     <ArrowLeft size={16} strokeWidth={2.6} />
                     Back to Games
-                  </a>
+                  </Link>
                 </div>
               </>
             ) : null}

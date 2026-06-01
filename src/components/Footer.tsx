@@ -1,4 +1,5 @@
 import { Github } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export function Footer() {
   const links = [
@@ -26,14 +27,14 @@ export function Footer() {
 
         <nav className="flex flex-wrap gap-4 md:justify-end" aria-label="Footer navigation">
           {links.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70 transition hover:text-arcade-mint"
             >
               {link.label === 'GitHub' ? <Github size={15} strokeWidth={2.5} /> : null}
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

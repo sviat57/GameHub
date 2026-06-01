@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Github } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { LiquidGlassCard } from './LiquidGlassCard'
 
 const fadeUp = {
@@ -54,8 +55,8 @@ export function HeroSection() {
             variants={fadeUp}
             transition={{ duration: 0.62, ease: 'easeOut' }}
           >
-            <a
-              href="/games"
+            <Link
+              to="/games"
               className="group inline-flex h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-full bg-arcade-mint px-4 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#070b0a] shadow-[0_0_34px_rgba(94,210,156,0.34)] transition duration-300 hover:bg-white sm:h-12 sm:flex-none sm:px-6 sm:text-xs sm:tracking-[0.16em]"
             >
               Play Games
@@ -64,15 +65,15 @@ export function HeroSection() {
                 strokeWidth={2.6}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </a>
+            </Link>
 
-            <a
-              href="/#projects"
+            <Link
+              to="/#projects"
               className="inline-flex h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white backdrop-blur-md transition duration-300 hover:border-arcade-mint/60 hover:text-arcade-mint hover:shadow-[0_0_26px_rgba(94,210,156,0.2)] sm:h-12 sm:flex-none sm:px-6 sm:text-xs sm:tracking-[0.16em]"
             >
               <Github size={17} strokeWidth={2.5} />
               View Projects
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 

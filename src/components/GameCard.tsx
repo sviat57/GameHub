@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Code2, Info } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import type { Game } from '../data/games'
 import { GameBadge } from './shared/GameBadge'
 
@@ -57,8 +58,8 @@ export function GameCard({ game }: GameCardProps) {
         </div>
 
         <div className="mt-auto grid grid-cols-3 gap-2 pt-8">
-          <a
-            href={game.route}
+          <Link
+            to={game.route}
             className="group/play inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-white px-2 text-[11px] font-extrabold uppercase tracking-[0.08em] text-arcade-black transition duration-300 hover:bg-arcade-mint"
             aria-label={`Play ${game.name}`}
           >
@@ -68,15 +69,15 @@ export function GameCard({ game }: GameCardProps) {
               strokeWidth={2.8}
               className="transition-transform duration-300 group-hover/play:translate-x-0.5"
             />
-          </a>
-          <a
-            href={`${game.route}#details`}
+          </Link>
+          <Link
+            to={`${game.route}#details`}
             className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-white/12 bg-white/[0.03] px-2 text-[11px] font-extrabold uppercase tracking-[0.08em] text-white/82 transition duration-300 hover:border-arcade-mint/50 hover:text-arcade-mint"
             aria-label={`View details for ${game.name}`}
           >
             <Info size={14} strokeWidth={2.5} />
             Details
-          </a>
+          </Link>
           <a
             href={game.codeUrl}
             className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-white/12 bg-white/[0.03] px-2 text-[11px] font-extrabold uppercase tracking-[0.08em] text-white/82 transition duration-300 hover:border-cyan-200/45 hover:text-cyan-100"

@@ -14,6 +14,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { useEffect, useMemo, useReducer } from 'react'
+import { Link } from 'react-router-dom'
 import { getGameById } from '../../../data/games'
 import { BackToGames } from '../../shared/BackToGames'
 import { GameBadge } from '../../shared/GameBadge'
@@ -732,13 +733,13 @@ export function BlockDropGame() {
                   <RotateCcw size={16} strokeWidth={2.5} />
                   Restart
                 </button>
-                <a
-                  href="/games"
+                <Link
+                  to="/games"
                   className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 text-xs font-extrabold uppercase text-white/82 transition duration-200 hover:border-arcade-mint/45 hover:bg-arcade-mint/10 hover:text-arcade-mint"
                 >
                   <ArrowLeft size={16} strokeWidth={2.5} />
                   Games
-                </a>
+                </Link>
                 <a
                   href={gameMeta.codeUrl}
                   className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 text-xs font-extrabold uppercase text-white/82 transition duration-200 hover:border-cyan-200/45 hover:bg-cyan-200/10 hover:text-cyan-100"

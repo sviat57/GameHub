@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import type { MouseEventHandler, ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 
 type NeonButtonProps = {
   children: ReactNode
@@ -37,6 +38,14 @@ export function NeonButton({
   const classes = `${base} ${variants[variant]} ${className}`
 
   if (href) {
+    if (href.startsWith('/')) {
+      return (
+        <Link to={href} aria-label={ariaLabel} className={classes}>
+          {children}
+        </Link>
+      )
+    }
+
     return (
       <motion.a
         href={href}
